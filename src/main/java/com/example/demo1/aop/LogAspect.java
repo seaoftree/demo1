@@ -54,7 +54,6 @@ public class LogAspect {
 //            System.out.println(signature.getDeclaringType());
 //            System.out.println(signature.getClass());
 //            System.out.println(signature.getDeclaringTypeName());
-//
 //            System.out.println(joinPoint.getTarget().getClass().getSimpleName());
 //            System.out.println("-------------------------------------");
 
@@ -90,8 +89,6 @@ public class LogAspect {
             //调用目标方法
             long startTime = System.currentTimeMillis();
             joinPoint.proceed();
-            System.out.println("test cherry pick");
-
             //调用目标方法之后执行的方法
             long endTime = System.currentTimeMillis();
 
