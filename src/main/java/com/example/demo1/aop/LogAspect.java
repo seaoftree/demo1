@@ -23,36 +23,9 @@ public class LogAspect {
 
     //前置通知
     @Before("execution(* com.example.demo1.aop.AspectController.test1(..))")
-    public void startRunTime(ProceedingJoinPoint joinPoint){
+    public void startRunTime(){
         System.out.println("before run-------");
 
-        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = attributes.getRequest();
-
-        StringBuilder requestLog = new StringBuilder();
-        Signature signature = joinPoint.getSignature();
-        requestLog.append(((MethodSignature) signature).getMethod().getName()).append("\t")
-                .append("请求信息：").append("URL = {").append(request.getRequestURI()).append("},\t")
-                .append("请求方式 = {").append(request.getMethod()).append("},\t")
-                .append("请求IP = {").append(request.getRemoteAddr()).append("},\t")
-                .append("类方法 = {").append(signature.getDeclaringTypeName()).append(".")
-                .append(signature.getName()).append("},\t");
-
-        // 处理请求参数
-        String[] paramNames = ((MethodSignature) signature).getParameterNames();
-        Object[] paramValues = joinPoint.getArgs();
-        int paramLength = null == paramNames ? 0 : paramNames.length;
-        if (paramLength == 0) {
-            requestLog.append("请求参数 = {} ");
-        } else {
-            requestLog.append("请求参数 = [");
-            for (int i = 0; i < paramLength - 1; i++) {
-                requestLog.append(paramNames[i]).append("=").append(JSONUtil.toJSONString(paramValues[i])).append(",");
-            }
-            requestLog.append(paramNames[paramLength - 1]).append("=").append(JSONUtil.toJSONString(paramValues[paramLength - 1])).append("]");
-        }
-
-        log.info(requestLog.toString());
     }
 
     //后置通知
@@ -73,7 +46,6 @@ public class LogAspect {
         try {
             //调用方法前执行的切面逻辑
             System.out.println("start time");
-            long startTime = System.currentTimeMillis();
 
 //            System.out.println("-------------------------------------");
 //            Signature signature = joinPoint.getSignature();
@@ -86,7 +58,37 @@ public class LogAspect {
 //            System.out.println(joinPoint.getTarget().getClass().getSimpleName());
 //            System.out.println("-------------------------------------");
 
+
+            ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+            HttpServletRequest request = attributes.getRequest();
+
+            StringBuilder requestLog = new StringBuilder();
+            Signature signature = joinPoint.getSignature();
+            requestLog.append(((MethodSignature) signature).getMethod().getName()).append("\t")
+                    .append("请求信息：").append("URL = {").append(request.getRequestURI()).append("},\t")
+                    .append("请求方式 = {").append(request.getMethod()).append("},\t")
+                    .append("请求IP = {").append(request.getRemoteAddr()).append("},\t")
+                    .append("类方法 = {").append(signature.getDeclaringTypeName()).append(".")
+                    .append(signature.getName()).append("},\t");
+
+            // 处理请求参数
+            String[] paramNames = ((MethodSignature) signature).getParameterNames();
+            Object[] paramValues = joinPoint.getArgs();
+            int paramLength = null == paramNames ? 0 : paramNames.length;
+            if (paramLength == 0) {
+                requestLog.append("请求参数 = {} ");
+            } else {
+                requestLog.append("请求参数 = [");
+                for (int i = 0; i < paramLength - 1; i++) {
+                    requestLog.append(paramNames[i]).append("=").append(JSONUtil.toJSONString(paramValues[i])).append(",");
+                }
+                requestLog.append(paramNames[paramLength - 1]).append("=").append(JSONUtil.toJSONString(paramValues[paramLength - 1])).append("]");
+            }
+
+            log.info(requestLog.toString());
+
             //调用目标方法
+            long startTime = System.currentTimeMillis();
             joinPoint.proceed();
 
             //调用目标方法之后执行的方法
