@@ -90,6 +90,7 @@ public class LogAspect {
             //调用目标方法
             long startTime = System.currentTimeMillis();
             joinPoint.proceed();
+            System.out.println("test cherry pick");
 
             //调用目标方法之后执行的方法
             long endTime = System.currentTimeMillis();
