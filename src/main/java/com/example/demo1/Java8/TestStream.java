@@ -11,13 +11,14 @@ import java.util.stream.Stream;
 
 public class TestStream {
     public static void main(String[] args) {
-        List<String> str = Arrays.asList("a","b","A","B");
-        str.sort(String :: compareToIgnoreCase);
+        List<String> str = Arrays.asList("a", "b", "A", "B");
+        str.sort(String::compareToIgnoreCase);
         str.sort(Comparator.comparing(String::toString).reversed());
 
     }
+
     @Test
-    public void testReduce(){
+    public void testReduce() {
         List<Integer> integers = Arrays.asList(1, 2, 3, null, 5, 6, 7, 8, 9);
         Optional<Integer> reduce = integers.stream()
                 .filter(Objects::nonNull)
@@ -35,7 +36,7 @@ public class TestStream {
     }
 
     @Test
-    public void testRange(){
+    public void testRange() {
         //闭集
         IntStream intStream1 = IntStream.rangeClosed(1, 100).filter(o -> o % 2 == 0);
         //开集
@@ -45,8 +46,8 @@ public class TestStream {
     }
 
     @Test
-    public void testFlatMap(){
-        String [] arraysOfWord = {"hello","null"};
+    public void testFlatMap() {
+        String[] arraysOfWord = {"hello", "null"};
         String collect = Arrays.stream(arraysOfWord)
                 .map(o -> o.split(""))
                 //扁平流
@@ -58,7 +59,7 @@ public class TestStream {
     }
 
     @Test
-    public void testMatch(){
+    public void testMatch() {
         List<String> strings = Arrays.asList("hello", "sky", "sea");
         Optional<String> any = strings.stream()
                 .filter(Objects::nonNull)
@@ -68,31 +69,38 @@ public class TestStream {
     }
 
     @Test
-    public void testIterate(){
+    public void testIterate() {
         //创建无限流的方法一
-        Stream.iterate(0,o -> o + 2)
+        Stream.iterate(0, o -> o + 2)
                 .limit(5)
                 .forEach(System.out::println);
 
         System.out.println("--------------------------------------------");
-        Stream.iterate((new int[]{0,1}),o -> new int[]{o[1],o[0] + o[1]})
+        Stream.iterate((new int[]{0, 1}), o -> new int[]{o[1], o[0] + o[1]})
                 .limit(5)
                 .forEach(o -> System.out.println(o[0] + "   " + o[1]));
 
         System.out.println("--------------------------------------------");
         //创建无限流的方法二
-        Stream.generate(Math :: random)
+        Stream.generate(Math::random)
                 .limit(5)
                 .forEach(System.out::println);
     }
 
     @Test
-    public void testCollect(){
+    public void testCollect() {
         Person sea = new Person(20, "sea");
         Person sky = new Person(30, "sky");
         Person tree = new Person(40, "tree");
         Person wall = new Person(40, "ops");
         List<Person> people = Arrays.asList(sea, sky, tree, wall);
+
+        String collect3 = people.stream().map(Person::getName)
+                .distinct()
+                .collect(Collectors.joining(","));
+        System.out.println(collect3);
+        System.out.println("--------------------------------------------");
+
         //多级分组
         Map<Integer, Map<String, List<Person>>> collect = people.stream()
                 .collect(Collectors.groupingBy(Person::getAge, Collectors.groupingBy(o -> {
@@ -111,7 +119,7 @@ public class TestStream {
         System.out.println(collect2);
 
         System.out.println("--------------------------------------------");
-        long count = people.stream().map(Person :: getAge).reduce(Integer::sum).get();
+        long count = people.stream().map(Person::getAge).reduce(Integer::sum).get();
         System.out.println(count);
 
         System.out.println("--------------------------------------------");
@@ -124,7 +132,7 @@ public class TestStream {
     }
 
     @Test
-    public void testParallel(){
+    public void testParallel() {
 
         //自动装箱反而会使并行的执行性能变差
         long startTime = System.currentTimeMillis();
