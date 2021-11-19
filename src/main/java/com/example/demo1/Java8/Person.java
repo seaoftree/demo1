@@ -1,8 +1,10 @@
 package com.example.demo1.Java8;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class Person {
     private Integer age;
     private String name;
