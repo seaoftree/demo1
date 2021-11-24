@@ -14,6 +14,7 @@ public class TestThreadLocal {
                 Person person = personInfo.get();
                 System.out.println(Thread.currentThread().getName() + ":" + person.getAge());
                 person.setAge(person.getAge() + 1);
+                personInfo.set(person);
             }).start();
         }
     }
