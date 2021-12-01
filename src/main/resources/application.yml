@@ -1,0 +1,5 @@
+my:
+  servers:
+        - dev.example.com
+        - another.example.com
+  name: sea
