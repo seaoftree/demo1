@@ -23,6 +23,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         System.out.println("拦截器：" + request.getRequestURI());
         System.out.println("拦截器：" + response.getContentType());
         System.out.println("拦截器：" + ((HandlerMethod)handler).getMethod());
+
         return true;
     }
 
