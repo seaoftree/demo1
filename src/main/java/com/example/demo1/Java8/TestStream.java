@@ -91,9 +91,12 @@ public class TestStream {
     public void testCollect() {
         Person sea = new Person(20, "sea");
         Person sky = new Person(30, "sky");
-        Person tree = new Person(40, "tree");
+        Person tree = new Person(40, "aree");
         Person wall = new Person(40, "ops");
         List<Person> people = Arrays.asList(sea, sky, tree, wall);
+
+        people.sort(Comparator.comparing(Person::getAge).thenComparing(Person::getName));
+        System.out.println(people);
 
         String collect3 = people.stream().map(Person::getName)
                 .distinct()
