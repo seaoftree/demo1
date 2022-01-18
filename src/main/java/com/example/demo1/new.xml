@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 员工序列  group:大序列  set:小序列集合 family:小序列 -->
+<groups>
+    <group key="01a" name="销售类">
+        <set key="011" name="销售">
+            <family name="电销,直销,大客户,渠道,商家运营,用户市场,到家精选"/>
+        </set>
+        <set key="012" name="客户服务">
+            <family name="客户服务,销售客服"/>
+        </set>
+        <set key="013" name="销售运营">
+            <family name="销售运营,销售培训,客户运营,销售市场,城市运营地推,商家运营,用户市场,到家精选,H城市管理,城市管理,H风控运营,策略运营,风控运营,营销策划,H客户运营,经营策略运营,数据运营,政策运营"/>
+        </set>
+        <set key="014" name="销售支持">
+            <family name="销售支持,服务拓展,实施拓展,H商务拓展,H服务支持,置业拓展,客发,市场拓展,项目运营,项目驻场"/>
+        </set>
+        <set key="015" name="销售其他">
+            <family name="数据分析销售,项目执行,企服执行,买手,检测车辆,定价,用户市场,城市运营地推,H金融服务,H签约服务,H权证服务,金融服务,签约服务,权证服务,H品牌文化,投资拓展"/>
+        </set>
+    </group>
+
+    <group key="02a" name="金融类">
+        <set key="021" name="销售（金融）">
+            <family name="电销金融,渠道金融,直销金融"/>
+        </set>
+        <set key="022" name="客户服务（金融）">
+            <family name="客户服务金融"/>
+        </set>
+        <set key="023" name="销售运营（金融）">
+            <family name="销售运营金融"/>
+        </set>
+        <set key="024" name="销售支持（金融）">
+            <family name="销售支持金融"/>
+        </set>
+        <set key="025" name="金融其他">
+            <family name="风控研究,授信管理,资金管理"/>
+        </set>
+        <set key="026" name="金融产品">
+            <family name="金融产品设计,金融产品运营,金融产品-DNU"/>
+        </set>
+        <set key="027" name="保险">
+            <family name="理赔,BD,保险运营"/>
+        </set>
+        <set key="028" name="风控">
+            <family name="贷后催收,贷前授信,贷中授信,风险合规,风险政策,数据分析风控,数据建模,数据建模-DNU"/>
+        </set>
+    </group>
+
+    <group key="03a" name="职能类">
+        <set key="031" name="财务">
+            <family name="财务"/>
+        </set>
+        <set key="032" name="合规监察">
+            <family name="合规监察"/>
+        </set>
+        <set key="033" name="职能其他">
+            <family name="法务,品牌公关,投资,行政,政府事务,HR,商务经纪"/>
+        </set>
+    </group>
+
+    <group key="04a" name="产品类">
+        <set key="041" name="UED">
+            <family name="UED"/>
+        </set>
+        <set key="042" name="产品设计">
+            <family name="产品设计"/>
+        </set>
+        <set key="043" name="产品运营">
+            <family name="产品运营"/>
+        </set>
+        <set key="044" name="内容编辑">
+            <family name="内容编辑"/>
+        </set>
+        <set key="045" name="内容审核">
+            <family name="内容审核"/>
+        </set>
+        <set key="046" name="数据分析">
+            <family name="数据分析"/>
+        </set>
+        <set key="047" name="其他">
+            <family name="内容创造,内容推广,内容支持,商务经纪,市场渠道转转,产品与系统运营"/>
+        </set>
+    </group>
+
+    <group key="05a" name="管理层">
+        <set key="051" name="产品技术管理">
+            <family name="产品技术管理"/>
+        </set>
+        <set key="052" name="管理">
+            <family name="管理"/>
+        </set>
+        <set key="053" name="金融管理">
+            <family name="金融管理"/>
+        </set>
+        <set key="054" name="销售管理">
+            <family name="销售管理"/>
+        </set>
+        <set key="055" name="职能管理">
+            <family name="职能管理"/>
+        </set>
+        <set key="056" name="其他">
+            <family name="产品管理,风控管理,管理,技术管理"/>
+        </set>
+    </group>
+
+    <group key="06a" name="技术类">
+        <set key="061" name="IT技术">
+            <family name="IT技术"/>
+        </set>
+        <set key="062" name="软件开发">
+            <family name="软件开发"/>
+        </set>
+        <set key="063" name="网络技术">
+            <family name="网络技术"/>
+        </set>
+        <set key="064" name="质量管理">
+            <family name="质量管理"/>
+        </set>
+    </group>
+    <group key="07a" name="教育类">
+        <set key="071" name="教研">
+            <family name="教研"/>
+        </set>
+        <set key="072" name="教务">
+            <family name="教务"/>
+        </set>
+        <set key="073" name="BD（教育）">
+            <family name="BD教育"/>
+        </set>
+        <set key="074" name="教学">
+            <family name="教学"/>
+        </set>
+    </group>
+</groups>
