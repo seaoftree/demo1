@@ -1,8 +1,14 @@
 package com.example.demo1;
 
+import java.util.List;
+
 public class TestRegex {
     public static void main(String[] args) {
-        String regexForRgName = "^((\\w)|(-)|([\\u4e00-\\u9fa5])){1,20}?$";
-        System.out.println("组-A".matches(regexForRgName));
+//        String regexForSysCode = "^[a-zA-Z]{3,10}?$";
+//        System.out.println("aa".matches(regexForSysCode));
+        StringBuffer stringBuffer = new StringBuffer("11,22,22,33,");
+
+        String managerIds = stringBuffer.substring(0, stringBuffer.length() - 1);
+        System.out.println(managerIds);
     }
 }
